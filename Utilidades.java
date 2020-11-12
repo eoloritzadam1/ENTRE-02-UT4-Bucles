@@ -5,6 +5,7 @@ import java.util.Scanner;
  *   
  *   @author - 
  */
+
 public class Utilidades
 {
 
@@ -17,9 +18,17 @@ public class Utilidades
      * (usa bucles while)
      */
     public static boolean estaEnOctal(int n) {
-         
-        return true;
-
+        int cifra = n / 10;
+        int resto = n % 10;
+        while (cifra != 0){
+            if (resto > 7) {
+                return false;
+            }
+            resto = cifra % 10;
+            cifra /= 10;
+        }
+        
+        return !(resto > 7);
     }
 
     /**
@@ -29,11 +38,12 @@ public class Utilidades
      * (usa bucles while)
      */
     public static int contarCifras(int n) {
-         
-        return 0;
-
+        int cifras = 0;
+        while (n != 0) {
+            cifras++;
+            n /= 10;
+        }
+        return cifras;
     }
 
-   
-    
 }
