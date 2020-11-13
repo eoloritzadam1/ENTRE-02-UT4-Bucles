@@ -40,9 +40,34 @@ public class IUTexto
      */
     private void hacerSumasOctales()
     {
-        
-        
+        char s = 'S';
+        int n1 = 0;
+        int n2 = 0;
+        while (s == 'S'){
+            Pantalla.borrarPantalla();
+            System.out.print("Teclee número1: ");
+            n1 = teclado.nextInt();
+            System.out.print("Teclee número2: ");
+            n2 = teclado.nextInt();
 
+            if (Utilidades.estaEnOctal(n1) == false || Utilidades.estaEnOctal(n2) == false){
+                System.out.println("\nAlguno de los números no está en octal");
+            }
+            else if (Utilidades.contarCifras(n1) != Utilidades.contarCifras(n2)){
+                System.out.println("\nNo tienen el mismo nº de cifras");
+            }
+            else {
+                int suma = calculadora.sumarEnOctal(n1,n2);
+                System.out.print("---------------------------------------\n");
+                System.out.printf("\n%20d\n", n1);
+                System.out.printf("%20d\n", n2);
+                System.out.printf("%5s%9d\n", "Suma octal:", suma);
+            }
+            System.out.print("\nQuiere hacer otra suma en octal? (S/s)");
+            teclado.nextLine();
+            s = teclado.nextLine().charAt(0);
+            Pantalla.borrarPantalla();
+        }
     }
 
     /**
@@ -53,7 +78,16 @@ public class IUTexto
 
     private void dibujarFiguras()
     {
+        int altura = 0;
         
+        System.out.print("Ahora se dibujará una figura");
+        System.out.print("\nAltura de la figura? (1-10)\n");
+        altura = teclado.nextInt();
+        while (altura < 1 || altura > 10){
+            System.out.print("Error, Altura de la figura? (1-10)\n");
+            altura = teclado.nextInt();
+        }
+        pintor.dibujarFigura(altura);
     }
 
 }
