@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- *  @author - 
+ *  @author - Elorri Oloritz
  *  
  * Punto de entrada a la aplicación
  *  
